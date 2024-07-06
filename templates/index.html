@@ -1,0 +1,98 @@
+<!--
+MIT License
+
+Copyright (c) [2024] [Ashwin Natarajan]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Since Last Power Cut</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: none;
+        }
+
+        #outer-container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            font-size: 2em;
+            background: #000;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #text-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #bescom-logo {
+            height: 100px;
+            margin-right: 20px;
+            border-radius: inherit;
+        }
+
+        #title-div {
+            font-size: 0.75em;
+        }
+
+        #timer {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 3px;
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer-container">
+        <img id="bescom-logo" src="static/BESCOM-Logo.png" alt="Keep icon">
+        <div id="text-container">
+            <div id="title-div">Time Since Last Power Cut</div>
+            <div id="timer">00:00:00</div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+    <script>
+        const socket = io();
+
+        socket.on('update_time', function(data) {
+            const hours = String(data.hours).padStart(2, '0');
+            const minutes = String(data.minutes).padStart(2, '0');
+            const seconds = String(data.seconds).padStart(2, '0');
+            document.getElementById('timer').innerText = `${hours}:${minutes}:${seconds}`;
+        });
+    </script>
+</body>
+</html>
