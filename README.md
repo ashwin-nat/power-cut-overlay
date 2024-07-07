@@ -76,9 +76,3 @@ Want to add more fun features? Fork this repo and send us a pull request. We pro
 ## 🙌 Credits
 
 Special thanks to [**Ashvin Panicker**](https://github.com/ashvinpanicker) for the UI design. Your design skills are electrifying!
-
----
-
-May your streams be uninterrupted and your timers accurate! Happy coding! ⚡🎉
-
----
