@@ -1,5 +1,7 @@
 
-# ⚡ Power-Cut Overlay
+# ⚡ Power-Cut Overlay!
+<img src="https://github.com/ashwin-nat/power-cut-overlay/assets/17102372/6fbdd6ad-740e-49e3-b9c5-fd24db8486db" align=center></img>
+
 
 > "Because even when the lights go out, the show must go on!"
 
